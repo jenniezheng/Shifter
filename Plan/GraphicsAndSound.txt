@@ -1,0 +1,67 @@
+Either find online (I searched, and most of these aren’t available alone) or make 
+Try to make these graphics good, but few pixels, fewer polygons for meshes, less complexity whenever possible. Graphics can really slow the game down, so be careful. 
+
+2D Graphics:
+(just a 2D look, don’t worry about making it work) 
+Choose skills screen decoration
+Scoreboard screen decoration
+Options screen decoration
+Player UI (Health bar decoration)
+	
+3D Models: 
+	Learn blender for best results
+Players:
+Human (preferably several diff humans)
+Thing
+Tools:
+	
+PickUps:
+Environment 
+( make most objects, if not all, static (noninteractable, nonmoving), bc that slows game down a lot.  
+Don’t use too many particle effects etc bc 
+	
+	
+
+Animations: 
+	Two types of animation: I prefer mechanim, if you can handle that. 
+Watch some tutorials on animation clips, animation controller, mechanim, blend trees, layers, and parameters 
+(You don’t have to actually code, but should know the how code works with animations through parameters)
+
+	Note: When making animations, pay attention to how it looks not just in 3rd person but in first. If the player who’s displaying the animation can’t at all see an animation, that’s a problem. We might add some animations/effects that only the first person player can see, to solve this. 
+	Search Unity assets (someti
+	Player movement:
+	Sidestep (both directions)
+	Jumping
+	Walking
+	Running
+	Running with weapon (if different from normal running)
+		Crouch (up and down)
+		Crouch walk (if that’s possible)
+		Dying
+		Transforming into thing
+		Transforming back into player
+	Tool use
+		Aiming tool (from held at side to aimed at center of camera)
+		Actually using tool 
+		Getting hit with various weapons
+		
+Other:
+Splash screen (like animated title)
+
+Sound 
+	Find various sound effects we can play, some that are too loud/soft will need to be modified in a sound editor 
+	Freesound.org is nice
+	
+	Some will be played to everyone (distance from source determines volume)
+	Spraying acid
+	Transformation
+	
+	Only heard by first person player
+	Loading complete
+	Loading 
+	Start clicked
+	Input add
+	Dead
+	Game over
+	Win 
+	Lose

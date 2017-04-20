@@ -1,0 +1,74 @@
+Splash Scene:
+1. MainCamera with audio listener
+2. Music Player (Don’t destroy on load, exists in all other scenes)
+a. BGM Audiolistener (yes loop)
+b. SFX Audiolistener (no loop)
+c. Store various audio clips in an array, BGM, Splash SFX, LobbySFX, GameSFX, ScoreSFX
+3. Shifter.AllScenes.MusicPlayer on Music Player object 
+a. void Start()
+i. Don’t destroy on load
+ii. Add add OnSceneChanged function to callOnSceneChanged
+b. OnSceneChanged 
+i. If Splash Screen: play Splash SFX (always played on default volume)
+ii. If Preconnect Screen: play BGM
+iii. If Lobby Scene, Play Lobby SFX, If BGM isn’t already playing, play BGM
+iv. If Game Scene, Play Game SFX, stop BGM
+v. If Score Scene, Play Score SFX
+4. Canvas
+a. Background decoration
+b. Animation (2 sec max)
+c. On animation end
+5. Shifter.Splashscene.SceneController: <-called at end of animation
+a. public void Finish(): Go to preconnect scene
+
+Preconnect Scene: 
+1. MainCamera with audiolistener 
+2. Canvas
+a. Text fields, sliders, input fields, and buttons
+b. Stats: playerName, friendlyKills, enemyKills, enemyConverts
+c. Interactable: Name input field, quality slider, volume slider, reset options button, reset stats button, reset stats and options
+d. Ready Button
+e. All interactable buttons call on Preconnect.PlayerStatsAndOptionsManager functions
+3. Event System (to monitor user input)
+4. Shifter.AllScenes.PlayerPrefManager:
+a. Public static variables: globalListenerVolume, graphics quality, friendlyKills, enemyKills, enemyConverts, playerName 
+b. Public static get and set methods for each 
+c. Tells if first play
+5. Shifter.Allscenes.PlayerStatsAndOptionsManager: 
+a. Public variables: store all all interactable/variable UI 
+b. Displays Stats and Options
+c. Changes AudioListener.volume and QualitySettings.SetQualityLevel accordingly
+d. Allows for reset of Options, Stats, and Stats plus name
+e. Allows for toggling of panels
+6. Shifter.Preconnect.NetworkManager
+a. Stores a feedbacktext and a connection panel
+b. Allows players to join room with friends (by entering the same room name)
+c. Allows players to join random room with strangers 
+
+Room Scene:
+1. Room is open, players may go in and out
+2. List updates whenever players enter or exit, storing the names of players in the scene
+
+Game Scene:
+Object GameManager
+Object GameUI
+Object PlayerUI
+Object PickUp
+
+Object Player(Instantiated with PhotonView)
+	Animator 
+	Player Body
+		Player weapon
+		Mechanimations
+	Photon View, transformation and animation
+	AnimationSync
+		Send transformation and animation, or get transformation and animation
+	CharacterController (Active in my player only)
+	Camera (Active in my player only)
+PlayerController Script (Active in my player only)
+	Store Animator, change it’s mechanim values
+	Creates all weapons on start up, change weapon will set each to active/nonactive
+	ActivateMine Script(Active in all), only an on start function 
+	PlayerManager Script
+Store/set player health
+Sends/gets changes in status on player calls
