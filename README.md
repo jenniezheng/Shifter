@@ -1,2 +1,4 @@
-Unfinished multiplayer find-the-murderer style game
+### Multiplayer Find-the-Murderer Game (In Progress)
+
+Built with Unity and C#
 
